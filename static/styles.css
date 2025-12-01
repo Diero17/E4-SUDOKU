@@ -1,0 +1,495 @@
+/* ---------- Variables de tema ---------- */
+:root {
+  --bg-body: #020617;
+  --bg-body-alt: radial-gradient(circle at top left, #0f172a 0, #020617 40%, #000 100%);
+  --bg-card: rgba(15, 23, 42, 0.96);
+  --bg-card-soft: rgba(15, 23, 42, 0.85);
+  --bg-input: #020617;
+  --bg-input-soft: #020617;
+  --border-subtle: #1f2937;
+  --border-strong: #38bdf8;
+  --accent: #38bdf8;
+  --accent-soft: rgba(56, 189, 248, 0.18);
+  --accent-strong: #0ea5e9;
+  --text-main: #e5e7eb;
+  --text-soft: #9ca3af;
+  --text-muted: #6b7280;
+  --danger: #f97373;
+}
+
+/* ---------- Layout general ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg-body-alt);
+  color: var(--text-main);
+}
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+/* ---------- Header ---------- */
+
+.header {
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  margin: 0 0 6px;
+  font-size: 2rem;
+  letter-spacing: 0.03em;
+}
+
+.subtitle {
+  margin: 0;
+  max-width: 640px;
+  color: var(--text-soft);
+  font-size: 0.95rem;
+}
+
+/* ---------- Cards ---------- */
+
+.card {
+  background: var(--bg-card);
+  border-radius: 18px;
+  padding: 16px 18px 18px;
+  margin-bottom: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  box-shadow:
+    0 22px 45px rgba(15, 23, 42, 0.75),
+    0 0 0 1px rgba(15, 23, 42, 0.8);
+}
+
+.card h2 {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+}
+
+.card-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+/* ---------- Controles superiores ---------- */
+
+.controls-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px 18px;
+  flex: 1;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.control-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.control-group select,
+.control-group input[type="number"],
+.control-group input[type="text"],
+.control-group input[type="file"] {
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  padding: 7px 12px;
+  background: var(--bg-input);
+  color: var(--text-main);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border 0.16s ease, box-shadow 0.16s ease, background 0.16s ease, transform 0.08s ease;
+}
+
+.control-group select:focus,
+.control-group input[type="number"]:focus,
+.control-group input[type="text"]:focus {
+  border-color: var(--border-strong);
+  box-shadow: 0 0 0 1px var(--accent-soft);
+  background: #020617;
+  transform: translateY(-1px);
+}
+
+.hint {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ---------- Botones ---------- */
+
+.buttons-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.btn {
+  font: inherit;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  background: radial-gradient(circle at top left, #1e293b 0, #020617 100%);
+  color: var(--text-main);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  transition:
+    background 0.18s ease,
+    transform 0.08s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.btn:hover {
+  background: radial-gradient(circle at top left, #0f172a 0, #020617 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.8);
+  border-color: var(--accent-strong);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, var(--accent-strong), #1d4ed8);
+  border-color: transparent;
+  color: #f9fafb;
+}
+
+.btn.primary:hover {
+  background: linear-gradient(135deg, #38bdf8, #2563eb);
+  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.6);
+}
+
+.btn.secondary {
+  background: linear-gradient(135deg, #16a34a, #0f766e);
+  border-color: transparent;
+  color: #ecfdf5;
+}
+
+.btn.secondary:hover {
+  background: linear-gradient(135deg, #22c55e, #0d9488);
+}
+
+.btn.tertiary {
+  background: transparent;
+  border-color: rgba(148, 163, 184, 0.55);
+  color: var(--accent);
+}
+
+.btn.tertiary:hover {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+/* ---------- Sección archivo ---------- */
+
+.file-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.file-input {
+  flex: 1;
+}
+
+.file-input input[type="file"] {
+  width: 100%;
+}
+
+.file-name {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+}
+
+/* ---------- Parámetros GA ---------- */
+
+.params-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 12px 16px;
+}
+
+.params-grid label span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-soft);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.params-grid input[type="number"],
+.params-grid input[type="range"] {
+  width: 100%;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  padding: 6px 10px;
+  background: var(--bg-input);
+  color: var(--text-main);
+  font-size: 0.85rem;
+  outline: none;
+}
+
+.params-grid input[type="number"]:focus {
+  border-color: var(--border-strong);
+  box-shadow: 0 0 0 1px var(--accent-soft);
+}
+
+.params-grid input[type="range"] {
+  -webkit-appearance: none;
+  height: 5px;
+  border-radius: 999px;
+  background: #020617;
+}
+
+.params-grid input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid #020617;
+  box-shadow: 0 0 0 3px var(--accent-soft);
+  cursor: pointer;
+}
+
+/* ---------- Tablero de Sudoku ---------- */
+
+.board-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0 4px;
+}
+
+.board-legend {
+  display: flex;
+  gap: 12px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.board-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.board-legend-badge {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+}
+
+.board-legend-badge.fixed {
+  background: #0f172a;
+}
+
+.board-legend-badge.editable {
+  background: #020617;
+}
+
+/* Contenedor visual del tablero */
+.sudoku-table {
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: radial-gradient(circle at top, #020617 0, #000 55%);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow:
+    0 24px 60px rgba(15, 23, 42, 0.95),
+    0 0 0 1px rgba(15, 23, 42, 0.8);
+}
+
+/* Celdas base */
+.sudoku-table td {
+  border: 1px solid #111827;
+  width: 46px;
+  height: 46px;
+  text-align: center;
+  padding: 0;
+}
+
+.sudoku-table input {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1.1rem;
+  text-align: center;
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+/* Celdas fijas vs editables */
+.sudoku-table td.cell-fixed {
+  background: radial-gradient(circle at top, #0b1120 0, #020617 85%);
+}
+
+.sudoku-table td.cell-fixed input {
+  font-weight: 700;
+  color: #e5e7eb;
+  cursor: default;
+}
+
+.sudoku-table td.cell-editable {
+  background: #020617;
+}
+
+.sudoku-table td.cell-editable input {
+  color: #bae6fd;
+}
+
+.sudoku-table td.cell-editable input:hover {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+.sudoku-table td.cell-editable input:focus {
+  background: rgba(15, 23, 42, 1);
+  box-shadow: inset 0 0 0 2px var(--accent);
+}
+
+/* Highlight de celda enfocada */
+.sudoku-table td:focus-within {
+  box-shadow: inset 0 0 0 2px var(--accent);
+}
+
+/* Bordes gruesos por sub-bloques */
+
+/* 9x9 -> bloques 3x3 */
+.sudoku-table.size-9 tr:nth-child(3n):not(:last-child) td {
+  border-bottom-width: 2px;
+}
+.sudoku-table.size-9 td:nth-child(3n):not(:last-child) {
+  border-right-width: 2px;
+}
+
+/* 6x6 -> bloques 2x3 */
+.sudoku-table.size-6 tr:nth-child(2n):not(:last-child) td {
+  border-bottom-width: 2px;
+}
+.sudoku-table.size-6 td:nth-child(3n):not(:last-child) {
+  border-right-width: 2px;
+}
+
+/* 4x4 -> bloques 2x2 */
+.sudoku-table.size-4 tr:nth-child(2n):not(:last-child) td {
+  border-bottom-width: 2px;
+}
+.sudoku-table.size-4 td:nth-child(2n):not(:last-child) {
+  border-right-width: 2px;
+}
+
+/* ---------- Resultados del AG ---------- */
+
+.result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.metrics {
+  background: var(--bg-input-soft);
+  border-radius: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--border-subtle);
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  white-space: pre-wrap;
+}
+
+/* Canvas del gráfico */
+#fitness-chart {
+  width: 100%;
+  max-height: 260px;
+}
+
+/* ---------- Historial ---------- */
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.history-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.85rem;
+  margin-top: 10px;
+}
+
+.history-table th,
+.history-table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.history-table th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-soft);
+}
+
+.history-table tr:hover {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 720px) {
+  .card-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .board-wrapper {
+    overflow-x: auto;
+  }
+
+  .sudoku-table td {
+    width: 38px;
+    height: 38px;
+  }
+}
